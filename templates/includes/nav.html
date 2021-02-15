@@ -1,0 +1,19 @@
+<nav class="navbar navbar-light" style="background-color: #393d3f;">
+    <a class="navbar-brand" href="/"><span style="color:#ff0001">Ya</span><span style="color:#d3d1d0">tube</span></a>
+    <nav class="my-2 my-md-0 mr-md-3">
+        {% if user.is_authenticated %}
+            <button type="button" class="btn btn-outline-primary">
+                <a class="p-2 text-dark" style="text-decoration: none;" href="{% url 'new_post' %}"><span style="color: #d1cfce;">Новая запись</span></a>
+            </button>
+            <span style="color:#d3d1d0">Пользователь:</span> <span style="color:#4cc6d6">{{ user.username }}</span>
+
+            <a class="p-2 text-dark" style="text-decoration: none;" href="{% url 'password_change' %}"><span style="color: #d1cfce;">Изменить пароль</span></a>
+            <button type="button" class="btn btn-outline-danger">
+                <a class="p-2 text-dark" style="text-decoration: none;" href="{% url 'logout' %}"><span style="color: #d1cfce;">Выйти</span></a>
+            </button>
+        {% else %}
+            <a class="p-2 text-dark" style="text-decoration: none;" href="{% url 'login' %}"><span style="color: #d1cfce;">Войти</span></a><span style="color: #d1cfce;"> |</span>
+            <a class="p-2 text-dark" style="text-decoration: none;" href="{% url 'signup' %}"><span style="color: #d1cfce;">Регистрация</span></a>
+        {% endif %}
+    </nav>
+</nav>
